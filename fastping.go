@@ -156,8 +156,8 @@ type Pinger struct {
 func NewPinger() *Pinger {
 	rand.Seed(time.Now().UnixNano())
 	return &Pinger{
-		id:      rand.Intn(0xffff),
-		seq:     rand.Intn(0xffff),
+		id:      rand.Intn(time.Now().UTC().Nanosecond()),
+		seq:     rand.Intn(time.Now().UTC().Nanosecond()),
 		addrs:   make(map[string]*net.IPAddr),
 		network: "ip",
 		source:  "",
